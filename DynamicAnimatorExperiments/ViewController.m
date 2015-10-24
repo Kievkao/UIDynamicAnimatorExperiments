@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DynamicAnimatorExperiments-Swift.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
+
+//- (IBAction)btnClicked:(id)sender {
+//    
+//    UIViewController *alertVC = [self.storyboard instantiateViewControllerWithIdentifier:@"alertVC"];
+//    [self presentViewController:alertVC animated:YES completion:nil];
+//}
 
 @end
