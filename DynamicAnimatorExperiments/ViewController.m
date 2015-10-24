@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DynamicAnimatorExperiments-Swift.h"
 
 @interface ViewController ()
 
@@ -16,12 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+//- (IBAction)btnClicked:(id)sender {
+//    
+//    UIViewController *alertVC = [self.storyboard instantiateViewControllerWithIdentifier:@"alertVC"];
+//    [self presentViewController:alertVC animated:YES completion:nil];
+//}
 
 @end
