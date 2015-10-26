@@ -9,24 +9,26 @@
 /* Begin PBXBuildFile section */
 		C55201441BD0DE7C007D96FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C55201431BD0DE7C007D96FE /* main.m */; };
 		C55201471BD0DE7C007D96FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C55201461BD0DE7C007D96FE /* AppDelegate.m */; };
-		C552014A1BD0DE7C007D96FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C55201491BD0DE7C007D96FE /* ViewController.m */; };
+		C552014A1BD0DE7C007D96FE /* ContainerForModalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55201491BD0DE7C007D96FE /* ContainerForModalVC.m */; };
 		C552014D1BD0DE7C007D96FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C552014B1BD0DE7C007D96FE /* Main.storyboard */; };
 		C552014F1BD0DE7C007D96FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C552014E1BD0DE7C007D96FE /* Assets.xcassets */; };
 		C55201521BD0DE7C007D96FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C55201501BD0DE7C007D96FE /* LaunchScreen.storyboard */; };
 		C552015D1BD0DE7C007D96FE /* DynamicAnimatorExperimentsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C552015C1BD0DE7C007D96FE /* DynamicAnimatorExperimentsTests.m */; };
 		C55201681BD0DE7C007D96FE /* DynamicAnimatorExperimentsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C55201671BD0DE7C007D96FE /* DynamicAnimatorExperimentsUITests.m */; };
-		C55201791BD10A3E007D96FE /* DynamicAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201781BD10A3E007D96FE /* DynamicAlertVC.swift */; settings = {ASSET_TAGS = (); }; };
-		C552017A1BD10A3E007D96FE /* DynamicAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201781BD10A3E007D96FE /* DynamicAlertVC.swift */; settings = {ASSET_TAGS = (); }; };
-		C552017B1BD10A3E007D96FE /* DynamicAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201781BD10A3E007D96FE /* DynamicAlertVC.swift */; settings = {ASSET_TAGS = (); }; };
-		C55201821BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201811BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift */; settings = {ASSET_TAGS = (); }; };
-		C55201831BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201811BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift */; settings = {ASSET_TAGS = (); }; };
-		C55201841BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201811BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift */; settings = {ASSET_TAGS = (); }; };
-		C55201861BD114A3007D96FE /* DynamicAlertPresentationC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201851BD114A3007D96FE /* DynamicAlertPresentationC.swift */; settings = {ASSET_TAGS = (); }; };
-		C55201871BD114A3007D96FE /* DynamicAlertPresentationC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201851BD114A3007D96FE /* DynamicAlertPresentationC.swift */; settings = {ASSET_TAGS = (); }; };
-		C55201881BD114A3007D96FE /* DynamicAlertPresentationC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201851BD114A3007D96FE /* DynamicAlertPresentationC.swift */; settings = {ASSET_TAGS = (); }; };
-		C552018A1BD11531007D96FE /* DynamicAlertTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201891BD11531007D96FE /* DynamicAlertTransitionDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		C552018B1BD11531007D96FE /* DynamicAlertTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201891BD11531007D96FE /* DynamicAlertTransitionDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		C552018C1BD11531007D96FE /* DynamicAlertTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201891BD11531007D96FE /* DynamicAlertTransitionDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		C55201791BD10A3E007D96FE /* DynamicAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201781BD10A3E007D96FE /* DynamicAlertVC.swift */; };
+		C552017A1BD10A3E007D96FE /* DynamicAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201781BD10A3E007D96FE /* DynamicAlertVC.swift */; };
+		C552017B1BD10A3E007D96FE /* DynamicAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201781BD10A3E007D96FE /* DynamicAlertVC.swift */; };
+		C55201821BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201811BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift */; };
+		C55201831BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201811BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift */; };
+		C55201841BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201811BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift */; };
+		C55201861BD114A3007D96FE /* DynamicAlertPresentationC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201851BD114A3007D96FE /* DynamicAlertPresentationC.swift */; };
+		C55201871BD114A3007D96FE /* DynamicAlertPresentationC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201851BD114A3007D96FE /* DynamicAlertPresentationC.swift */; };
+		C55201881BD114A3007D96FE /* DynamicAlertPresentationC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201851BD114A3007D96FE /* DynamicAlertPresentationC.swift */; };
+		C552018A1BD11531007D96FE /* DynamicAlertTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201891BD11531007D96FE /* DynamicAlertTransitionDelegate.swift */; };
+		C552018B1BD11531007D96FE /* DynamicAlertTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201891BD11531007D96FE /* DynamicAlertTransitionDelegate.swift */; };
+		C552018C1BD11531007D96FE /* DynamicAlertTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55201891BD11531007D96FE /* DynamicAlertTransitionDelegate.swift */; };
+		C5B25B431BDE3F2200A96B2A /* TopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B25B421BDE3F2200A96B2A /* TopVC.swift */; };
+		C5B25B471BDE3F5700A96B2A /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B25B461BDE3F5700A96B2A /* ContainerVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +53,8 @@
 		C55201431BD0DE7C007D96FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C55201451BD0DE7C007D96FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C55201461BD0DE7C007D96FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C55201481BD0DE7C007D96FE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C55201491BD0DE7C007D96FE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C55201481BD0DE7C007D96FE /* ContainerForModalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerForModalVC.h; sourceTree = "<group>"; };
+		C55201491BD0DE7C007D96FE /* ContainerForModalVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainerForModalVC.m; sourceTree = "<group>"; };
 		C552014C1BD0DE7C007D96FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C552014E1BD0DE7C007D96FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C55201511BD0DE7C007D96FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,6 +72,8 @@
 		C55201811BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicAlertAnimatedTrans.swift; sourceTree = "<group>"; };
 		C55201851BD114A3007D96FE /* DynamicAlertPresentationC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicAlertPresentationC.swift; sourceTree = "<group>"; };
 		C55201891BD11531007D96FE /* DynamicAlertTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicAlertTransitionDelegate.swift; sourceTree = "<group>"; };
+		C5B25B421BDE3F2200A96B2A /* TopVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopVC.swift; sourceTree = "<group>"; };
+		C5B25B461BDE3F5700A96B2A /* ContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,11 +124,10 @@
 		C55201411BD0DE7C007D96FE /* DynamicAnimatorExperiments */ = {
 			isa = PBXGroup;
 			children = (
+				C5B25B411BDE3BDA00A96B2A /* SideDynamicMenu */,
 				C552017C1BD10B06007D96FE /* DynamicAlertVC */,
 				C55201451BD0DE7C007D96FE /* AppDelegate.h */,
 				C55201461BD0DE7C007D96FE /* AppDelegate.m */,
-				C55201481BD0DE7C007D96FE /* ViewController.h */,
-				C55201491BD0DE7C007D96FE /* ViewController.m */,
 				C552014B1BD0DE7C007D96FE /* Main.storyboard */,
 				C552014E1BD0DE7C007D96FE /* Assets.xcassets */,
 				C55201501BD0DE7C007D96FE /* LaunchScreen.storyboard */,
@@ -166,6 +169,8 @@
 		C552017C1BD10B06007D96FE /* DynamicAlertVC */ = {
 			isa = PBXGroup;
 			children = (
+				C55201481BD0DE7C007D96FE /* ContainerForModalVC.h */,
+				C55201491BD0DE7C007D96FE /* ContainerForModalVC.m */,
 				C552018D1BD115CF007D96FE /* Transition */,
 				C55201781BD10A3E007D96FE /* DynamicAlertVC.swift */,
 			);
@@ -180,6 +185,15 @@
 				C55201891BD11531007D96FE /* DynamicAlertTransitionDelegate.swift */,
 			);
 			name = Transition;
+			sourceTree = "<group>";
+		};
+		C5B25B411BDE3BDA00A96B2A /* SideDynamicMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C5B25B421BDE3F2200A96B2A /* TopVC.swift */,
+				C5B25B461BDE3F5700A96B2A /* ContainerVC.swift */,
+			);
+			name = SideDynamicMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +264,7 @@
 				TargetAttributes = {
 					C552013E1BD0DE7C007D96FE = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 499RHTV973;
+						DevelopmentTeam = 5NBNSZSEH3;
 					};
 					C55201571BD0DE7C007D96FE = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -315,7 +329,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C55201821BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift in Sources */,
-				C552014A1BD0DE7C007D96FE /* ViewController.m in Sources */,
+				C552014A1BD0DE7C007D96FE /* ContainerForModalVC.m in Sources */,
+				C5B25B431BDE3F2200A96B2A /* TopVC.swift in Sources */,
+				C5B25B471BDE3F5700A96B2A /* ContainerVC.swift in Sources */,
 				C552018A1BD11531007D96FE /* DynamicAlertTransitionDelegate.swift in Sources */,
 				C55201471BD0DE7C007D96FE /* AppDelegate.m in Sources */,
 				C55201791BD10A3E007D96FE /* DynamicAlertVC.swift in Sources */,
@@ -419,7 +435,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -457,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -575,6 +591,7 @@
 				C552016E1BD0DE7C007D96FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C552016F1BD0DE7C007D96FE /* Build configuration list for PBXNativeTarget "DynamicAnimatorExperimentsTests" */ = {
 			isa = XCConfigurationList;
@@ -583,6 +600,7 @@
 				C55201711BD0DE7C007D96FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C55201721BD0DE7C007D96FE /* Build configuration list for PBXNativeTarget "DynamicAnimatorExperimentsUITests" */ = {
 			isa = XCConfigurationList;
@@ -591,6 +609,7 @@
 				C55201741BD0DE7C007D96FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
