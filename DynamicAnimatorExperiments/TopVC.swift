@@ -8,10 +8,21 @@
 
 import UIKit
 
+protocol DynamicTopVCDelegate: class {
+    
+    func topVCTestBtnClicked(viewController: UIViewController)
+}
+
 class TopVC: UIViewController {
+    
+    weak var delegate: DynamicTopVCDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    @IBAction func testBtnClicked(sender: AnyObject) {
+        self.delegate?.topVCTestBtnClicked(self)
     }
 }
