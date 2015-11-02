@@ -11,6 +11,8 @@ import UIKit
 class DynamicFlowLayout: UICollectionViewFlowLayout {
     
     var dynamicAnimator: UIDynamicAnimator!
+    var visibleIndexPaths: NSMutableSet = NSMutableSet()
+    var latestDelta: CGFloat = 0.0
 
     override init() {
         super.init()
@@ -26,7 +28,7 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
         
         self.minimumInteritemSpacing = 10;
         self.minimumLineSpacing = 10;
-        self.itemSize = CGSizeMake(44, 44);
+        self.itemSize = CGSizeMake(85, 85);
         self.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
         self.dynamicAnimator = UIDynamicAnimator(collectionViewLayout: self)
     }
@@ -34,11 +36,12 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
     override func prepareLayout() {
         super.prepareLayout()
         
-        let contentSize = self.collectionView?.contentSize
-        let items = super.layoutAttributesForElementsInRect(CGRectMake(0.0, 0.0, (contentSize?.width)!, (contentSize?.height)!))
+        let visibleRect = CGRectMake((self.collectionView?.bounds.origin.x)!, (self.collectionView?.bounds.origin.y)!, self.collectionView!.frame.size.width, self.collectionView!.frame.size.height)
+        
+        let visibleItems = super.layoutAttributesForElementsInRect(visibleRect)
         
         if self.dynamicAnimator.behaviors.count == 0 {
-            for item in items! {
+            for item in visibleItems! {
                 let attachBehavior = UIAttachmentBehavior(item: item, attachedToAnchor: (item as UIDynamicItem).center)
                 attachBehavior.length = 0.0
                 attachBehavior.damping = 0.8
@@ -47,6 +50,11 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
                 self.dynamicAnimator.addBehavior(attachBehavior)
             }
         }
+    }
+    
+    func resetLayout() {
+        self.dynamicAnimator.removeAllBehaviors()
+        self.prepareLayout()
     }
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
@@ -67,7 +75,7 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
             
             let yDistanceFromTouch = fabs(touchLocation!.y - (behavior as! UIAttachmentBehavior).anchorPoint.y)
             let xDistanceFromTouch = fabs(touchLocation!.x - (behavior as! UIAttachmentBehavior).anchorPoint.x)
-            let scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / 1500.0
+            let scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / 1300.0
             
             let layoutAttributes = (behavior as! UIAttachmentBehavior).items.first
             var center = layoutAttributes!.center
@@ -82,6 +90,8 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
             layoutAttributes!.center = center
             self.dynamicAnimator.updateItemUsingCurrentState(layoutAttributes!)
         }
+        
+        self.latestDelta = delta
         
         return false
     }
