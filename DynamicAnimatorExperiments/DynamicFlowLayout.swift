@@ -28,7 +28,7 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
         
         self.minimumInteritemSpacing = 10;
         self.minimumLineSpacing = 10;
-        self.itemSize = CGSizeMake(85, 85);
+        self.itemSize = CGSizeMake(100, 100);
         self.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
         self.dynamicAnimator = UIDynamicAnimator(collectionViewLayout: self)
     }
@@ -38,17 +38,51 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
         
         let visibleRect = CGRectMake((self.collectionView?.bounds.origin.x)!, (self.collectionView?.bounds.origin.y)!, self.collectionView!.frame.size.width, self.collectionView!.frame.size.height)
         
-        let visibleItems = super.layoutAttributesForElementsInRect(visibleRect)
+        let visibleItems: [UICollectionViewLayoutAttributes] = super.layoutAttributesForElementsInRect(visibleRect)!
+        let indexPathsOfVisibleItems: Set = Set(visibleItems.map({return $0.indexPath}))
         
-        if self.dynamicAnimator.behaviors.count == 0 {
-            for item in visibleItems! {
-                let attachBehavior = UIAttachmentBehavior(item: item, attachedToAnchor: (item as UIDynamicItem).center)
-                attachBehavior.length = 0.0
-                attachBehavior.damping = 0.8
-                attachBehavior.frequency = 1.0
+        let noLongerVisibleBehaviours = self.dynamicAnimator.behaviors.filter({
+            !indexPathsOfVisibleItems.contains((($0 as! UIAttachmentBehavior).items.first as! UICollectionViewLayoutAttributes).indexPath)
+        })
+        
+        for behavior: UIAttachmentBehavior in noLongerVisibleBehaviours as! [UIAttachmentBehavior] {
+            self.dynamicAnimator.removeBehavior(behavior)
+            self.visibleIndexPaths.removeObject((behavior.items.first as! UICollectionViewLayoutAttributes).indexPath)
+        }
+        
+        let newlyVisibleItems = visibleItems.filter({
+            !self.visibleIndexPaths.containsObject(($0 as UICollectionViewLayoutAttributes).indexPath)
+        })
+        
+        let touchLocation = self.collectionView?.panGestureRecognizer.locationInView(self.collectionView)
+        
+        
+        for item in newlyVisibleItems as [UICollectionViewLayoutAttributes] {
+            
+            let behavior = UIAttachmentBehavior(item: item, attachedToAnchor: (item as UIDynamicItem).center)
+            
+            behavior.length = 0.0
+            behavior.damping = 0.8
+            behavior.frequency = 1.0
+            
+            if !CGPointEqualToPoint(touchLocation!, CGPointZero) {
+                let yDistanceFromTouch = fabs(touchLocation!.y - behavior.anchorPoint.y)
+                let xDistanceFromTouch = fabs(touchLocation!.x - behavior.anchorPoint.x)
+                let scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / 1300.0
+                var center = item.center
                 
-                self.dynamicAnimator.addBehavior(attachBehavior)
+                if self.latestDelta < 0 {
+                    center.y += max(self.latestDelta, self.latestDelta * scrollResistance)
+                }
+                else {
+                    center.y += min(self.latestDelta, self.latestDelta * scrollResistance)
+                }
+                
+                item.center = center
             }
+            
+            self.dynamicAnimator.addBehavior(behavior)
+            self.visibleIndexPaths.addObject(item.indexPath)
         }
     }
     
