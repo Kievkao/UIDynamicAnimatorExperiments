@@ -36,26 +36,16 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
     override func prepareLayout() {
         super.prepareLayout()
         
-        let visibleRect = CGRectMake((self.collectionView?.bounds.origin.x)!, (self.collectionView?.bounds.origin.y)!, self.collectionView!.frame.size.width, self.collectionView!.frame.size.height)
+        let visibleItems = self.visibleItems()
+        let noVisibleItems = self.noVisibleItemsUsingVisible(visibleItems)
         
-        let visibleItems: [UICollectionViewLayoutAttributes] = super.layoutAttributesForElementsInRect(visibleRect)!
-        let indexPathsOfVisibleItems: Set = Set(visibleItems.map({return $0.indexPath}))
-        
-        let noLongerVisibleBehaviours = self.dynamicAnimator.behaviors.filter({
-            !indexPathsOfVisibleItems.contains((($0 as! UIAttachmentBehavior).items.first as! UICollectionViewLayoutAttributes).indexPath)
-        })
-        
-        for behavior: UIAttachmentBehavior in noLongerVisibleBehaviours as! [UIAttachmentBehavior] {
-            self.dynamicAnimator.removeBehavior(behavior)
-            self.visibleIndexPaths.removeObject((behavior.items.first as! UICollectionViewLayoutAttributes).indexPath)
-        }
+        self.removeBehaviorsForInvisibleItems(noVisibleItems as! [UIAttachmentBehavior])
         
         let newlyVisibleItems = visibleItems.filter({
             !self.visibleIndexPaths.containsObject(($0 as UICollectionViewLayoutAttributes).indexPath)
         })
         
         let touchLocation = self.collectionView?.panGestureRecognizer.locationInView(self.collectionView)
-        
         
         for item in newlyVisibleItems as [UICollectionViewLayoutAttributes] {
             
@@ -84,6 +74,27 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
             self.dynamicAnimator.addBehavior(behavior)
             self.visibleIndexPaths.addObject(item.indexPath)
         }
+    }
+    
+    func visibleItems() -> [UICollectionViewLayoutAttributes] {
+        let visibleRect = CGRectMake((self.collectionView?.bounds.origin.x)!, (self.collectionView?.bounds.origin.y)!, self.collectionView!.frame.size.width, self.collectionView!.frame.size.height)
+        
+        return super.layoutAttributesForElementsInRect(visibleRect)!
+    }
+    
+    func removeBehaviorsForInvisibleItems(items:[UIAttachmentBehavior]) {
+        for behavior: UIAttachmentBehavior in items {
+            self.dynamicAnimator.removeBehavior(behavior)
+            self.visibleIndexPaths.removeObject((behavior.items.first as! UICollectionViewLayoutAttributes).indexPath)
+        }
+    }
+    
+    func noVisibleItemsUsingVisible(visibleItems: [UICollectionViewLayoutAttributes]) -> [UIDynamicBehavior] {
+        let indexPathsOfVisibleItems: Set = Set(visibleItems.map({return $0.indexPath}))
+        
+        return self.dynamicAnimator.behaviors.filter({
+            !indexPathsOfVisibleItems.contains((($0 as! UIAttachmentBehavior).items.first as! UICollectionViewLayoutAttributes).indexPath)
+        })
     }
     
     func resetLayout() {
