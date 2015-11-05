@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C540969D1BDFCDC200C4F59A /* Secondary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C540969C1BDFCDC200C4F59A /* Secondary.storyboard */; };
+		C54096A01BDFCF2C00C4F59A /* DynamicCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C540969F1BDFCF2C00C4F59A /* DynamicCollectionVC.swift */; };
+		C54096A21BDFCF8700C4F59A /* DynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54096A11BDFCF8700C4F59A /* DynamicCell.swift */; };
+		C54096A41BDFD09500C4F59A /* DynamicFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54096A31BDFD09500C4F59A /* DynamicFlowLayout.swift */; };
 		C55201441BD0DE7C007D96FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C55201431BD0DE7C007D96FE /* main.m */; };
 		C55201471BD0DE7C007D96FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C55201461BD0DE7C007D96FE /* AppDelegate.m */; };
 		C552014A1BD0DE7C007D96FE /* ContainerForModalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55201491BD0DE7C007D96FE /* ContainerForModalVC.m */; };
@@ -49,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C540969C1BDFCDC200C4F59A /* Secondary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Secondary.storyboard; sourceTree = "<group>"; };
+		C540969F1BDFCF2C00C4F59A /* DynamicCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCollectionVC.swift; sourceTree = "<group>"; };
+		C54096A11BDFCF8700C4F59A /* DynamicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCell.swift; sourceTree = "<group>"; };
+		C54096A31BDFD09500C4F59A /* DynamicFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFlowLayout.swift; sourceTree = "<group>"; };
 		C552013F1BD0DE7C007D96FE /* DynamicAnimatorExperiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicAnimatorExperiments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C55201431BD0DE7C007D96FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C55201451BD0DE7C007D96FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +109,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C540969A1BDFCD8E00C4F59A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C552014B1BD0DE7C007D96FE /* Main.storyboard */,
+				C552014E1BD0DE7C007D96FE /* Assets.xcassets */,
+				C55201501BD0DE7C007D96FE /* LaunchScreen.storyboard */,
+				C540969C1BDFCDC200C4F59A /* Secondary.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C540969B1BDFCD9400C4F59A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C540969E1BDFCE5200C4F59A /* DynamicCollectionView */,
+				C5B25B411BDE3BDA00A96B2A /* SideDynamicMenu */,
+				C552017C1BD10B06007D96FE /* DynamicAlertVC */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C540969E1BDFCE5200C4F59A /* DynamicCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C540969F1BDFCF2C00C4F59A /* DynamicCollectionVC.swift */,
+				C54096A11BDFCF8700C4F59A /* DynamicCell.swift */,
+				C54096A31BDFD09500C4F59A /* DynamicFlowLayout.swift */,
+			);
+			name = DynamicCollectionView;
+			sourceTree = "<group>";
+		};
 		C55201361BD0DE7C007D96FE = {
 			isa = PBXGroup;
 			children = (
@@ -124,13 +163,10 @@
 		C55201411BD0DE7C007D96FE /* DynamicAnimatorExperiments */ = {
 			isa = PBXGroup;
 			children = (
-				C5B25B411BDE3BDA00A96B2A /* SideDynamicMenu */,
-				C552017C1BD10B06007D96FE /* DynamicAlertVC */,
+				C540969B1BDFCD9400C4F59A /* Controllers */,
+				C540969A1BDFCD8E00C4F59A /* Views */,
 				C55201451BD0DE7C007D96FE /* AppDelegate.h */,
 				C55201461BD0DE7C007D96FE /* AppDelegate.m */,
-				C552014B1BD0DE7C007D96FE /* Main.storyboard */,
-				C552014E1BD0DE7C007D96FE /* Assets.xcassets */,
-				C55201501BD0DE7C007D96FE /* LaunchScreen.storyboard */,
 				C55201531BD0DE7C007D96FE /* Info.plist */,
 				C55201421BD0DE7C007D96FE /* Supporting Files */,
 				C55201751BD10A3E007D96FE /* DynamicAnimatorExperiments-Bridging-Header.h */,
@@ -304,6 +340,7 @@
 				C55201521BD0DE7C007D96FE /* LaunchScreen.storyboard in Resources */,
 				C552014F1BD0DE7C007D96FE /* Assets.xcassets in Resources */,
 				C552014D1BD0DE7C007D96FE /* Main.storyboard in Resources */,
+				C540969D1BDFCDC200C4F59A /* Secondary.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,12 +365,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C54096A21BDFCF8700C4F59A /* DynamicCell.swift in Sources */,
 				C55201821BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift in Sources */,
 				C552014A1BD0DE7C007D96FE /* ContainerForModalVC.m in Sources */,
 				C5B25B431BDE3F2200A96B2A /* TopVC.swift in Sources */,
 				C5B25B471BDE3F5700A96B2A /* ContainerVC.swift in Sources */,
+				C54096A41BDFD09500C4F59A /* DynamicFlowLayout.swift in Sources */,
 				C552018A1BD11531007D96FE /* DynamicAlertTransitionDelegate.swift in Sources */,
 				C55201471BD0DE7C007D96FE /* AppDelegate.m in Sources */,
+				C54096A01BDFCF2C00C4F59A /* DynamicCollectionVC.swift in Sources */,
 				C55201791BD10A3E007D96FE /* DynamicAlertVC.swift in Sources */,
 				C55201861BD114A3007D96FE /* DynamicAlertPresentationC.swift in Sources */,
 				C55201441BD0DE7C007D96FE /* main.m in Sources */,
