@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C509ADF21CF8362F00671169 /* DraggableImageViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C509ADF11CF8362F00671169 /* DraggableImageViewVC.swift */; };
 		C540969D1BDFCDC200C4F59A /* Secondary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C540969C1BDFCDC200C4F59A /* Secondary.storyboard */; };
 		C54096A01BDFCF2C00C4F59A /* DynamicCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C540969F1BDFCF2C00C4F59A /* DynamicCollectionVC.swift */; };
 		C54096A21BDFCF8700C4F59A /* DynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54096A11BDFCF8700C4F59A /* DynamicCell.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C509ADF11CF8362F00671169 /* DraggableImageViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableImageViewVC.swift; sourceTree = "<group>"; };
 		C540969C1BDFCDC200C4F59A /* Secondary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Secondary.storyboard; sourceTree = "<group>"; };
 		C540969F1BDFCF2C00C4F59A /* DynamicCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCollectionVC.swift; sourceTree = "<group>"; };
 		C54096A11BDFCF8700C4F59A /* DynamicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCell.swift; sourceTree = "<group>"; };
@@ -64,7 +66,7 @@
 		C55201481BD0DE7C007D96FE /* ContainerForModalVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerForModalVC.h; sourceTree = "<group>"; };
 		C55201491BD0DE7C007D96FE /* ContainerForModalVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainerForModalVC.m; sourceTree = "<group>"; };
 		C552014C1BD0DE7C007D96FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C552014E1BD0DE7C007D96FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C552014E1BD0DE7C007D96FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Views/Assets.xcassets; sourceTree = "<group>"; };
 		C55201511BD0DE7C007D96FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C55201531BD0DE7C007D96FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C55201581BD0DE7C007D96FE /* DynamicAnimatorExperimentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicAnimatorExperimentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,35 +111,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C509ADF01CF8361F00671169 /* DraggableImageView */ = {
+			isa = PBXGroup;
+			children = (
+				C509ADF11CF8362F00671169 /* DraggableImageViewVC.swift */,
+			);
+			path = DraggableImageView;
+			sourceTree = "<group>";
+		};
 		C540969A1BDFCD8E00C4F59A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C552014B1BD0DE7C007D96FE /* Main.storyboard */,
-				C552014E1BD0DE7C007D96FE /* Assets.xcassets */,
 				C55201501BD0DE7C007D96FE /* LaunchScreen.storyboard */,
+				C552014B1BD0DE7C007D96FE /* Main.storyboard */,
 				C540969C1BDFCDC200C4F59A /* Secondary.storyboard */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C540969B1BDFCD9400C4F59A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C552017C1BD10B06007D96FE /* DynamicAlertVC */,
 				C540969E1BDFCE5200C4F59A /* DynamicCollectionView */,
 				C5B25B411BDE3BDA00A96B2A /* SideDynamicMenu */,
-				C552017C1BD10B06007D96FE /* DynamicAlertVC */,
+				C509ADF01CF8361F00671169 /* DraggableImageView */,
 			);
-			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		C540969E1BDFCE5200C4F59A /* DynamicCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				C540969F1BDFCF2C00C4F59A /* DynamicCollectionVC.swift */,
 				C54096A11BDFCF8700C4F59A /* DynamicCell.swift */,
+				C540969F1BDFCF2C00C4F59A /* DynamicCollectionVC.swift */,
 				C54096A31BDFD09500C4F59A /* DynamicFlowLayout.swift */,
 			);
-			name = DynamicCollectionView;
+			path = DynamicCollectionView;
 			sourceTree = "<group>";
 		};
 		C55201361BD0DE7C007D96FE = {
@@ -164,14 +174,14 @@
 			isa = PBXGroup;
 			children = (
 				C540969B1BDFCD9400C4F59A /* Controllers */,
+				C55201421BD0DE7C007D96FE /* Supporting Files */,
 				C540969A1BDFCD8E00C4F59A /* Views */,
 				C55201451BD0DE7C007D96FE /* AppDelegate.h */,
 				C55201461BD0DE7C007D96FE /* AppDelegate.m */,
-				C55201531BD0DE7C007D96FE /* Info.plist */,
-				C55201421BD0DE7C007D96FE /* Supporting Files */,
 				C55201751BD10A3E007D96FE /* DynamicAnimatorExperiments-Bridging-Header.h */,
 				C55201761BD10A3E007D96FE /* DynamicAnimatorExperimentsTests-Bridging-Header.h */,
 				C55201771BD10A3E007D96FE /* DynamicAnimatorExperimentsUITests-Bridging-Header.h */,
+				C55201531BD0DE7C007D96FE /* Info.plist */,
 			);
 			path = DynamicAnimatorExperiments;
 			sourceTree = "<group>";
@@ -179,9 +189,10 @@
 		C55201421BD0DE7C007D96FE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C552014E1BD0DE7C007D96FE /* Assets.xcassets */,
 				C55201431BD0DE7C007D96FE /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C552015B1BD0DE7C007D96FE /* DynamicAnimatorExperimentsTests */ = {
@@ -205,12 +216,12 @@
 		C552017C1BD10B06007D96FE /* DynamicAlertVC */ = {
 			isa = PBXGroup;
 			children = (
+				C552018D1BD115CF007D96FE /* Transition */,
 				C55201481BD0DE7C007D96FE /* ContainerForModalVC.h */,
 				C55201491BD0DE7C007D96FE /* ContainerForModalVC.m */,
-				C552018D1BD115CF007D96FE /* Transition */,
 				C55201781BD10A3E007D96FE /* DynamicAlertVC.swift */,
 			);
-			name = DynamicAlertVC;
+			path = DynamicAlertVC;
 			sourceTree = "<group>";
 		};
 		C552018D1BD115CF007D96FE /* Transition */ = {
@@ -220,16 +231,16 @@
 				C55201851BD114A3007D96FE /* DynamicAlertPresentationC.swift */,
 				C55201891BD11531007D96FE /* DynamicAlertTransitionDelegate.swift */,
 			);
-			name = Transition;
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		C5B25B411BDE3BDA00A96B2A /* SideDynamicMenu */ = {
 			isa = PBXGroup;
 			children = (
-				C5B25B421BDE3F2200A96B2A /* TopVC.swift */,
 				C5B25B461BDE3F5700A96B2A /* ContainerVC.swift */,
+				C5B25B421BDE3F2200A96B2A /* TopVC.swift */,
 			);
-			name = SideDynamicMenu;
+			path = SideDynamicMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +388,7 @@
 				C55201791BD10A3E007D96FE /* DynamicAlertVC.swift in Sources */,
 				C55201861BD114A3007D96FE /* DynamicAlertPresentationC.swift in Sources */,
 				C55201441BD0DE7C007D96FE /* main.m in Sources */,
+				C509ADF21CF8362F00671169 /* DraggableImageViewVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +438,7 @@
 				C552014C1BD0DE7C007D96FE /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		C55201501BD0DE7C007D96FE /* LaunchScreen.storyboard */ = {
@@ -434,6 +447,7 @@
 				C55201511BD0DE7C007D96FE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

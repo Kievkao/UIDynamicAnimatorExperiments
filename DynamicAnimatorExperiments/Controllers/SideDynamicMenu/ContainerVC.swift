@@ -28,11 +28,11 @@ class ContainerVC: UIViewController, DynamicTopVCDelegate, UIGestureRecognizerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.leftScreenEdgeGestureRecognizer = UIScreenEdgePanGestureRecognizer(target:self, action:"handleScreenPan:")
+        self.leftScreenEdgeGestureRecognizer = UIScreenEdgePanGestureRecognizer(target:self, action:#selector(ContainerVC.handleScreenPan(_:)))
         self.leftScreenEdgeGestureRecognizer.edges = .Left
         self.leftScreenEdgeGestureRecognizer.delegate = self
         
-        self.rightScreenEdgeGestureRecognizer = UIScreenEdgePanGestureRecognizer(target:self, action:"handleScreenPan:")
+        self.rightScreenEdgeGestureRecognizer = UIScreenEdgePanGestureRecognizer(target:self, action:#selector(ContainerVC.handleScreenPan(_:)))
         self.rightScreenEdgeGestureRecognizer.edges = .Right
         self.rightScreenEdgeGestureRecognizer.delegate = self
         
