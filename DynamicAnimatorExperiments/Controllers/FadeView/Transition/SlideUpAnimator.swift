@@ -11,7 +11,7 @@ import UIKit
 class SlideUpAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 1.0
+        return 0.5
     }
 
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
@@ -20,7 +20,7 @@ class SlideUpAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             return
         }
 
-        UIView.animateWithDuration(self.transitionDuration(transitionContext), animations: { 
+        UIView.animateWithDuration(self.transitionDuration(transitionContext), delay: 0.0, options: .CurveEaseOut, animations: { 
             fromVC.view.frame.offsetInPlace(dx: 0, dy: -fromVC.view.frame.size.height)
             }) { (success) in
                 fromVC.view.removeFromSuperview()

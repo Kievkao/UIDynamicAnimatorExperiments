@@ -48,6 +48,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47r-or-yfN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZc-e1-MIy">
                                 <rect key="frame" x="273" y="550" width="54" height="30"/>
                                 <state key="normal" title="Dismiss"/>
@@ -56,10 +60,14 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="yjG-Yk-bBG" firstAttribute="top" secondItem="47r-or-yfN" secondAttribute="bottom" id="DLR-ye-HbW"/>
                             <constraint firstItem="lZc-e1-MIy" firstAttribute="centerX" secondItem="pI7-th-Lm3" secondAttribute="centerX" id="L3S-QZ-MzI"/>
                             <constraint firstItem="yjG-Yk-bBG" firstAttribute="top" secondItem="lZc-e1-MIy" secondAttribute="bottom" constant="20" id="OfI-sq-Nqj"/>
+                            <constraint firstItem="47r-or-yfN" firstAttribute="leading" secondItem="pI7-th-Lm3" secondAttribute="leading" id="qBq-J7-cIR"/>
+                            <constraint firstAttribute="trailing" secondItem="47r-or-yfN" secondAttribute="trailing" id="uJk-B6-guM"/>
+                            <constraint firstItem="47r-or-yfN" firstAttribute="top" secondItem="pI7-th-Lm3" secondAttribute="top" id="xLS-9k-i48"/>
                         </constraints>
                     </view>
                 </viewController>
