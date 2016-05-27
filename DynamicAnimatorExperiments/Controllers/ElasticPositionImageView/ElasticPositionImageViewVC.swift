@@ -12,7 +12,7 @@ class ElasticPositionImageViewVC: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
 
-    let MaxAllowedVelocity: CGFloat = 1000.0
+    let MaxAllowedVelocity: CGFloat = 2000.0
     let PushAwayScale: CGFloat = 50.0
 
     var dynamicAnimator: UIDynamicAnimator!

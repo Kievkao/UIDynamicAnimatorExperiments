@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		C509ADF21CF8362F00671169 /* DraggableImageViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C509ADF11CF8362F00671169 /* DraggableImageViewVC.swift */; };
 		C509ADF51CF8413700671169 /* ElasticPositionImageViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C509ADF41CF8413700671169 /* ElasticPositionImageViewVC.swift */; };
-		C540969D1BDFCDC200C4F59A /* Secondary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C540969C1BDFCDC200C4F59A /* Secondary.storyboard */; };
+		C509ADF81CF87E9700671169 /* FadeViewContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C509ADF71CF87E9700671169 /* FadeViewContainerVC.swift */; };
+		C509ADFA1CF87E9F00671169 /* FadeViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C509ADF91CF87E9F00671169 /* FadeViewVC.swift */; };
+		C509ADFC1CF87EBB00671169 /* FadeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C509ADFB1CF87EBB00671169 /* FadeView.storyboard */; };
+		C509AE011CF882BD00671169 /* FadeTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C509AE001CF882BD00671169 /* FadeTransitionDelegate.swift */; };
+		C509AE031CF882CC00671169 /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C509AE021CF882CC00671169 /* FadeAnimator.swift */; };
+		C509AE051CF8845900671169 /* SlideUpAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C509AE041CF8845900671169 /* SlideUpAnimator.swift */; };
 		C54096A01BDFCF2C00C4F59A /* DynamicCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C540969F1BDFCF2C00C4F59A /* DynamicCollectionVC.swift */; };
 		C54096A21BDFCF8700C4F59A /* DynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54096A11BDFCF8700C4F59A /* DynamicCell.swift */; };
 		C54096A41BDFD09500C4F59A /* DynamicFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54096A31BDFD09500C4F59A /* DynamicFlowLayout.swift */; };
@@ -57,7 +62,12 @@
 /* Begin PBXFileReference section */
 		C509ADF11CF8362F00671169 /* DraggableImageViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableImageViewVC.swift; sourceTree = "<group>"; };
 		C509ADF41CF8413700671169 /* ElasticPositionImageViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElasticPositionImageViewVC.swift; sourceTree = "<group>"; };
-		C540969C1BDFCDC200C4F59A /* Secondary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Secondary.storyboard; sourceTree = "<group>"; };
+		C509ADF71CF87E9700671169 /* FadeViewContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeViewContainerVC.swift; sourceTree = "<group>"; };
+		C509ADF91CF87E9F00671169 /* FadeViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeViewVC.swift; sourceTree = "<group>"; };
+		C509ADFB1CF87EBB00671169 /* FadeView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FadeView.storyboard; sourceTree = "<group>"; };
+		C509AE001CF882BD00671169 /* FadeTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransitionDelegate.swift; sourceTree = "<group>"; };
+		C509AE021CF882CC00671169 /* FadeAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeAnimator.swift; sourceTree = "<group>"; };
+		C509AE041CF8845900671169 /* SlideUpAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideUpAnimator.swift; sourceTree = "<group>"; };
 		C540969F1BDFCF2C00C4F59A /* DynamicCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCollectionVC.swift; sourceTree = "<group>"; };
 		C54096A11BDFCF8700C4F59A /* DynamicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCell.swift; sourceTree = "<group>"; };
 		C54096A31BDFD09500C4F59A /* DynamicFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFlowLayout.swift; sourceTree = "<group>"; };
@@ -129,12 +139,32 @@
 			path = ElasticPositionImageView;
 			sourceTree = "<group>";
 		};
+		C509ADF61CF87E7D00671169 /* FadeViewWithSmoke */ = {
+			isa = PBXGroup;
+			children = (
+				C509ADFF1CF882BD00671169 /* Transition */,
+				C509ADF91CF87E9F00671169 /* FadeViewVC.swift */,
+				C509ADF71CF87E9700671169 /* FadeViewContainerVC.swift */,
+			);
+			path = FadeViewWithSmoke;
+			sourceTree = "<group>";
+		};
+		C509ADFF1CF882BD00671169 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				C509AE001CF882BD00671169 /* FadeTransitionDelegate.swift */,
+				C509AE021CF882CC00671169 /* FadeAnimator.swift */,
+				C509AE041CF8845900671169 /* SlideUpAnimator.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
 		C540969A1BDFCD8E00C4F59A /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				C55201501BD0DE7C007D96FE /* LaunchScreen.storyboard */,
 				C552014B1BD0DE7C007D96FE /* Main.storyboard */,
-				C540969C1BDFCDC200C4F59A /* Secondary.storyboard */,
+				C509ADFB1CF87EBB00671169 /* FadeView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +177,7 @@
 				C5B25B411BDE3BDA00A96B2A /* SideDynamicMenu */,
 				C509ADF01CF8361F00671169 /* DraggableImageView */,
 				C509ADF31CF8412900671169 /* ElasticPositionImageView */,
+				C509ADF61CF87E7D00671169 /* FadeViewWithSmoke */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -360,9 +391,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C55201521BD0DE7C007D96FE /* LaunchScreen.storyboard in Resources */,
+				C509ADFC1CF87EBB00671169 /* FadeView.storyboard in Resources */,
 				C552014F1BD0DE7C007D96FE /* Assets.xcassets in Resources */,
 				C552014D1BD0DE7C007D96FE /* Main.storyboard in Resources */,
-				C540969D1BDFCDC200C4F59A /* Secondary.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,18 +420,23 @@
 			files = (
 				C54096A21BDFCF8700C4F59A /* DynamicCell.swift in Sources */,
 				C55201821BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift in Sources */,
+				C509AE031CF882CC00671169 /* FadeAnimator.swift in Sources */,
 				C509ADF51CF8413700671169 /* ElasticPositionImageViewVC.swift in Sources */,
+				C509ADF81CF87E9700671169 /* FadeViewContainerVC.swift in Sources */,
 				C552014A1BD0DE7C007D96FE /* ContainerForModalVC.m in Sources */,
 				C5B25B431BDE3F2200A96B2A /* TopVC.swift in Sources */,
 				C5B25B471BDE3F5700A96B2A /* ContainerVC.swift in Sources */,
 				C54096A41BDFD09500C4F59A /* DynamicFlowLayout.swift in Sources */,
+				C509AE051CF8845900671169 /* SlideUpAnimator.swift in Sources */,
 				C552018A1BD11531007D96FE /* DynamicAlertTransitionDelegate.swift in Sources */,
 				C55201471BD0DE7C007D96FE /* AppDelegate.m in Sources */,
 				C54096A01BDFCF2C00C4F59A /* DynamicCollectionVC.swift in Sources */,
+				C509AE011CF882BD00671169 /* FadeTransitionDelegate.swift in Sources */,
 				C55201791BD10A3E007D96FE /* DynamicAlertVC.swift in Sources */,
 				C55201861BD114A3007D96FE /* DynamicAlertPresentationC.swift in Sources */,
 				C55201441BD0DE7C007D96FE /* main.m in Sources */,
 				C509ADF21CF8362F00671169 /* DraggableImageViewVC.swift in Sources */,
+				C509ADFA1CF87E9F00671169 /* FadeViewVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
