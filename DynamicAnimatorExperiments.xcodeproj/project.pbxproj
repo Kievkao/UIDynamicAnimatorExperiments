@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C509ADF21CF8362F00671169 /* DraggableImageViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C509ADF11CF8362F00671169 /* DraggableImageViewVC.swift */; };
+		C509ADF51CF8413700671169 /* ElasticPositionImageViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C509ADF41CF8413700671169 /* ElasticPositionImageViewVC.swift */; };
 		C540969D1BDFCDC200C4F59A /* Secondary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C540969C1BDFCDC200C4F59A /* Secondary.storyboard */; };
 		C54096A01BDFCF2C00C4F59A /* DynamicCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C540969F1BDFCF2C00C4F59A /* DynamicCollectionVC.swift */; };
 		C54096A21BDFCF8700C4F59A /* DynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54096A11BDFCF8700C4F59A /* DynamicCell.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		C509ADF11CF8362F00671169 /* DraggableImageViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableImageViewVC.swift; sourceTree = "<group>"; };
+		C509ADF41CF8413700671169 /* ElasticPositionImageViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElasticPositionImageViewVC.swift; sourceTree = "<group>"; };
 		C540969C1BDFCDC200C4F59A /* Secondary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Secondary.storyboard; sourceTree = "<group>"; };
 		C540969F1BDFCF2C00C4F59A /* DynamicCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCollectionVC.swift; sourceTree = "<group>"; };
 		C54096A11BDFCF8700C4F59A /* DynamicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCell.swift; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 			path = DraggableImageView;
 			sourceTree = "<group>";
 		};
+		C509ADF31CF8412900671169 /* ElasticPositionImageView */ = {
+			isa = PBXGroup;
+			children = (
+				C509ADF41CF8413700671169 /* ElasticPositionImageViewVC.swift */,
+			);
+			path = ElasticPositionImageView;
+			sourceTree = "<group>";
+		};
 		C540969A1BDFCD8E00C4F59A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 				C540969E1BDFCE5200C4F59A /* DynamicCollectionView */,
 				C5B25B411BDE3BDA00A96B2A /* SideDynamicMenu */,
 				C509ADF01CF8361F00671169 /* DraggableImageView */,
+				C509ADF31CF8412900671169 /* ElasticPositionImageView */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -378,6 +389,7 @@
 			files = (
 				C54096A21BDFCF8700C4F59A /* DynamicCell.swift in Sources */,
 				C55201821BD10C91007D96FE /* DynamicAlertAnimatedTrans.swift in Sources */,
+				C509ADF51CF8413700671169 /* ElasticPositionImageViewVC.swift in Sources */,
 				C552014A1BD0DE7C007D96FE /* ContainerForModalVC.m in Sources */,
 				C5B25B431BDE3F2200A96B2A /* TopVC.swift in Sources */,
 				C5B25B471BDE3F5700A96B2A /* ContainerVC.swift in Sources */,

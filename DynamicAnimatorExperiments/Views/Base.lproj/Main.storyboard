@@ -21,6 +21,49 @@
             </objects>
             <point key="canvasLocation" x="-1107" y="327"/>
         </scene>
+        <!--Elastic Position Image ViewVC-->
+        <scene sceneID="FII-q7-tUs">
+            <objects>
+                <viewController id="Bno-p1-Tka" customClass="ElasticPositionImageViewVC" customModule="DynamicAnimatorExperiments" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lTF-Be-w3t"/>
+                        <viewControllerLayoutGuide type="bottom" id="6xI-Wk-AbA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FiA-W1-BAs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cup" translatesAutoresizingMaskIntoConstraints="NO" id="LJn-LB-FjR">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Xqe-n3-YFk"/>
+                                    <constraint firstAttribute="width" constant="200" id="wD6-Df-hiK"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="T0k-vE-7wQ" appends="YES" id="14N-k8-7NZ"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LJn-LB-FjR" firstAttribute="centerX" secondItem="FiA-W1-BAs" secondAttribute="centerX" id="QbX-as-e77"/>
+                            <constraint firstItem="LJn-LB-FjR" firstAttribute="centerY" secondItem="FiA-W1-BAs" secondAttribute="centerY" id="Wb9-sf-iRb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="LJn-LB-FjR" id="Tf1-Xl-0V9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Son-u6-bT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="T0k-vE-7wQ">
+                    <connections>
+                        <action selector="handlePanGesture:" destination="Bno-p1-Tka" id="oYz-Dd-th8"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-399" y="-530"/>
+        </scene>
         <!--Draggable Image ViewVC-->
         <scene sceneID="BmP-LM-U8e">
             <objects>
@@ -149,6 +192,25 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="zUu-HI-ojh" kind="show" id="Deg-ru-Af1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nr7-ZC-FlX" userLabel="Elastic imageView positioning">
+                                        <rect key="frame" x="0.0" y="240" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nr7-ZC-FlX" id="Vh3-el-85X">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Elastic imageView positioning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuE-PG-IoO">
+                                                    <rect key="frame" x="8" y="0.0" width="600" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Bno-p1-Tka" kind="show" id="lbx-XA-Wed"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
