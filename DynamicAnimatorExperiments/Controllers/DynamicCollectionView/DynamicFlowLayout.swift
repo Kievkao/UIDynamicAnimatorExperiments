@@ -28,13 +28,13 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
         
         self.minimumInteritemSpacing = 10;
         self.minimumLineSpacing = 10;
-        self.itemSize = CGSizeMake(100, 100);
+        self.itemSize = CGSize(width: 100, height: 100);
         self.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
         self.dynamicAnimator = UIDynamicAnimator(collectionViewLayout: self)
     }
     
-    override func prepareLayout() {
-        super.prepareLayout()
+    override func prepare() {
+        super.prepare()
         
         let visibleItems = self.visibleItems()
         let noVisibleItems = self.noVisibleItemsUsingVisible(visibleItems)
@@ -42,10 +42,10 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
         self.removeBehaviorsForInvisibleItems(noVisibleItems as! [UIAttachmentBehavior])
         
         let newlyVisibleItems = visibleItems.filter({
-            !self.visibleIndexPaths.containsObject(($0 as UICollectionViewLayoutAttributes).indexPath)
+            !self.visibleIndexPaths.contains(($0 as UICollectionViewLayoutAttributes).indexPath)
         })
         
-        let touchLocation = self.collectionView?.panGestureRecognizer.locationInView(self.collectionView)
+        let touchLocation = self.collectionView?.panGestureRecognizer.location(in: self.collectionView)
         
         for item in newlyVisibleItems as [UICollectionViewLayoutAttributes] {
             
@@ -55,7 +55,7 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
             behavior.damping = 0.8
             behavior.frequency = 1.0
             
-            if !CGPointEqualToPoint(touchLocation!, CGPointZero) {
+            if !touchLocation!.equalTo(CGPoint.zero) {
                 let yDistanceFromTouch = fabs(touchLocation!.y - behavior.anchorPoint.y)
                 let xDistanceFromTouch = fabs(touchLocation!.x - behavior.anchorPoint.x)
                 let scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / 1300.0
@@ -72,24 +72,24 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
             }
             
             self.dynamicAnimator.addBehavior(behavior)
-            self.visibleIndexPaths.addObject(item.indexPath)
+            self.visibleIndexPaths.add(item.indexPath)
         }
     }
     
     func visibleItems() -> [UICollectionViewLayoutAttributes] {
-        let visibleRect = CGRectMake((self.collectionView?.bounds.origin.x)!, (self.collectionView?.bounds.origin.y)!, self.collectionView!.frame.size.width, self.collectionView!.frame.size.height)
+        let visibleRect = CGRect(x: (self.collectionView?.bounds.origin.x)!, y: (self.collectionView?.bounds.origin.y)!, width: self.collectionView!.frame.size.width, height: self.collectionView!.frame.size.height)
         
-        return super.layoutAttributesForElementsInRect(visibleRect)!
+        return super.layoutAttributesForElements(in: visibleRect)!
     }
     
-    func removeBehaviorsForInvisibleItems(items:[UIAttachmentBehavior]) {
+    func removeBehaviorsForInvisibleItems(_ items:[UIAttachmentBehavior]) {
         for behavior: UIAttachmentBehavior in items {
             self.dynamicAnimator.removeBehavior(behavior)
-            self.visibleIndexPaths.removeObject((behavior.items.first as! UICollectionViewLayoutAttributes).indexPath)
+            self.visibleIndexPaths.remove((behavior.items.first as! UICollectionViewLayoutAttributes).indexPath)
         }
     }
     
-    func noVisibleItemsUsingVisible(visibleItems: [UICollectionViewLayoutAttributes]) -> [UIDynamicBehavior] {
+    func noVisibleItemsUsingVisible(_ visibleItems: [UICollectionViewLayoutAttributes]) -> [UIDynamicBehavior] {
         let indexPathsOfVisibleItems: Set = Set(visibleItems.map({return $0.indexPath}))
         
         return self.dynamicAnimator.behaviors.filter({
@@ -99,22 +99,22 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
     
     func resetLayout() {
         self.dynamicAnimator.removeAllBehaviors()
-        self.prepareLayout()
+        self.prepare()
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        return self.dynamicAnimator.itemsInRect(rect) as? [UICollectionViewLayoutAttributes]
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        return self.dynamicAnimator.items(in: rect) as? [UICollectionViewLayoutAttributes]
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        return self.dynamicAnimator.layoutAttributesForCellAtIndexPath(indexPath)
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        return self.dynamicAnimator.layoutAttributesForCell(at: indexPath)
     }
     
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         
         let scrollView: UIScrollView! = self.collectionView
         let delta = newBounds.origin.y - scrollView.bounds.origin.y
-        let touchLocation = self.collectionView?.panGestureRecognizer.locationInView(self.collectionView)
+        let touchLocation = self.collectionView?.panGestureRecognizer.location(in: self.collectionView)
         
         for behavior in self.dynamicAnimator.behaviors {
             
@@ -133,7 +133,7 @@ class DynamicFlowLayout: UICollectionViewFlowLayout {
             }
             
             layoutAttributes!.center = center
-            self.dynamicAnimator.updateItemUsingCurrentState(layoutAttributes!)
+            self.dynamicAnimator.updateItem(usingCurrentState: layoutAttributes!)
         }
         
         self.latestDelta = delta

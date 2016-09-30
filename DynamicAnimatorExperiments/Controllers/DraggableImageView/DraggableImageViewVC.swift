@@ -19,20 +19,20 @@ class DraggableImageViewVC: UIViewController {
         self.dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
     }
 
-    @IBAction func handlePanGesture(sender: UIPanGestureRecognizer) {
+    @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
 
         switch sender.state {
-        case .Began:
-            let anchorPoint = sender.locationInView(self.view)
+        case .began:
+            let anchorPoint = sender.location(in: self.view)
             let locationInImage = CGPoint(x: anchorPoint.x - imageView.center.x, y: anchorPoint.y - imageView.center.y)
-            let locationAdjustedForRotate = CGPointApplyAffineTransform(locationInImage, CGAffineTransformInvert(self.imageView.transform))
+            let locationAdjustedForRotate = locationInImage.applying(self.imageView.transform.inverted())
 
             self.attachmentBehavior = UIAttachmentBehavior(item: self.imageView, offsetFromCenter: UIOffsetMake(locationAdjustedForRotate.x, locationAdjustedForRotate.y), attachedToAnchor: anchorPoint)
             self.dynamicAnimator.addBehavior(self.attachmentBehavior)
             break
 
-        case .Changed:
-            self.attachmentBehavior.anchorPoint = sender.locationInView(self.view)
+        case .changed:
+            self.attachmentBehavior.anchorPoint = sender.location(in: self.view)
             break
 
         default:

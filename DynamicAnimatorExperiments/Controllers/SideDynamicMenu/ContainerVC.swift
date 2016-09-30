@@ -29,18 +29,18 @@ class ContainerVC: UIViewController, DynamicTopVCDelegate, UIGestureRecognizerDe
         super.viewDidLoad()
         
         self.leftScreenEdgeGestureRecognizer = UIScreenEdgePanGestureRecognizer(target:self, action:#selector(ContainerVC.handleScreenPan(_:)))
-        self.leftScreenEdgeGestureRecognizer.edges = .Left
+        self.leftScreenEdgeGestureRecognizer.edges = .left
         self.leftScreenEdgeGestureRecognizer.delegate = self
         
         self.rightScreenEdgeGestureRecognizer = UIScreenEdgePanGestureRecognizer(target:self, action:#selector(ContainerVC.handleScreenPan(_:)))
-        self.rightScreenEdgeGestureRecognizer.edges = .Right
+        self.rightScreenEdgeGestureRecognizer.edges = .right
         self.rightScreenEdgeGestureRecognizer.delegate = self
         
         self.view.addGestureRecognizer(self.leftScreenEdgeGestureRecognizer)
         self.view.addGestureRecognizer(self.rightScreenEdgeGestureRecognizer)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
@@ -48,13 +48,13 @@ class ContainerVC: UIViewController, DynamicTopVCDelegate, UIGestureRecognizerDe
         
         // create collision boundaries based on screen size with additional area over right side for shifting by pan
         let collisionBehavior = UICollisionBehavior(items: [self.topVCContainer])
-        collisionBehavior.setTranslatesReferenceBoundsIntoBoundaryWithInsets(UIEdgeInsetsMake(0, 0, 0, -kMaxRightShiftDistance))
+        collisionBehavior.setTranslatesReferenceBoundsIntoBoundary(with: UIEdgeInsetsMake(0, 0, 0, -kMaxRightShiftDistance))
         
         // create gravity effect based on left screen side
         self.gravityBehavior = UIGravityBehavior(items: [self.topVCContainer])
-        self.gravityBehavior.gravityDirection = CGVectorMake(-1, 0)
+        self.gravityBehavior.gravityDirection = CGVector(dx: -1, dy: 0)
         
-        self.pushBehavior = UIPushBehavior(items: [self.topVCContainer], mode: .Instantaneous)
+        self.pushBehavior = UIPushBehavior(items: [self.topVCContainer], mode: .instantaneous)
         self.pushBehavior.magnitude = 0.0   // for Instantaneous mode we cannot use this property
         self.pushBehavior.angle = 0.0       // angle is equal to direction property
         self.pushBehavior.active = false
@@ -69,49 +69,49 @@ class ContainerVC: UIViewController, DynamicTopVCDelegate, UIGestureRecognizerDe
         self.animator.addBehavior(itemBehavior)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == kContentVCSegueIdentifier {
-            let topVC: TopVC = segue.destinationViewController as! TopVC
+            let topVC: TopVC = segue.destination as! TopVC
             topVC.delegate = self
         }
     }
     
-    func topVCTestBtnClicked(viewController: UIViewController) {
-        self.pushBehavior.pushDirection = CGVectorMake(kPushByButtonShiftDistance, 0.0)
+    func topVCTestBtnClicked(_ viewController: UIViewController) {
+        self.pushBehavior.pushDirection = CGVector(dx: kPushByButtonShiftDistance, dy: 0.0)
         self.pushBehavior.active = true
     }
     
-    func handleScreenPan(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+    func handleScreenPan(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
         
-        var location = gestureRecognizer.locationInView(self.view)
-        location.y = CGRectGetMidY(self.topVCContainer.bounds)
+        var location = gestureRecognizer.location(in: self.view)
+        location.y = self.topVCContainer.bounds.midY
         
         switch gestureRecognizer.state {
         
-        case .Began:
+        case .began:
             self.animator.removeBehavior(self.gravityBehavior)
             self.panAttachmentBehavior = UIAttachmentBehavior(item: self.topVCContainer, attachedToAnchor: location)
             self.animator.addBehavior(self.panAttachmentBehavior!)
             
-        case .Changed:
+        case .changed:
             self.panAttachmentBehavior!.anchorPoint = location
             
-        case .Ended:
+        case .ended:
             self.animator.removeBehavior(self.panAttachmentBehavior!)
             self.panAttachmentBehavior = nil
             
-            let velocity = gestureRecognizer.velocityInView(self.view)
+            let velocity = gestureRecognizer.velocity(in: self.view)
             
             if velocity.x > 0 {
                 self.topVCOpened = true
-                self.gravityBehavior.gravityDirection = CGVectorMake(1, 0)
+                self.gravityBehavior.gravityDirection = CGVector(dx: 1, dy: 0)
             }
             else {
                 self.topVCOpened = false
-                self.gravityBehavior.gravityDirection = CGVectorMake(-1, 0)
+                self.gravityBehavior.gravityDirection = CGVector(dx: -1, dy: 0)
             }
             
-            self.pushBehavior.pushDirection = CGVectorMake(velocity.x / 10, 0)
+            self.pushBehavior.pushDirection = CGVector(dx: velocity.x / 10, dy: 0)
             self.pushBehavior.active = true
             
             self.animator.addBehavior(self.gravityBehavior)
@@ -121,7 +121,7 @@ class ContainerVC: UIViewController, DynamicTopVCDelegate, UIGestureRecognizerDe
         }
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
 
         if (gestureRecognizer == self.leftScreenEdgeGestureRecognizer) && !self.topVCOpened {
             return true

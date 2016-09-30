@@ -17,26 +17,25 @@ class FadeAnimator: NSObject, UIViewControllerAnimatedTransitioning, UIDynamicAn
 
     var context: UIViewControllerContextTransitioning!
 
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 1.0
     }
 
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        guard   let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
-                let containerView = transitionContext.containerView()
-            else {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
                 transitionContext.completeTransition(false)
                 return
         }
-
-        toVC.view.frame.offsetInPlace(dx: 0.0, dy: -toVC.view.frame.size.height)
+        
+        let containerView = transitionContext.containerView
+        toVC.view.frame = toVC.view.frame.offsetBy(dx: 0.0, dy: -toVC.view.frame.size.height)
         containerView.addSubview(toVC.view)
 
         self.dynamicAnimator = UIDynamicAnimator(referenceView: containerView)
         self.dynamicAnimator.delegate = self
 
         self.collisionBehavior = UICollisionBehavior(items: [toVC.view])
-        self.collisionBehavior.addBoundaryWithIdentifier("bottom", fromPoint: CGPointMake(0, containerView.frame.size.height + 1), toPoint: CGPointMake(containerView.frame.size.width, containerView.frame.size.height + 1))
+        self.collisionBehavior.addBoundary(withIdentifier: "bottom" as NSCopying, from: CGPoint(x: 0, y: containerView.frame.size.height + 1), to: CGPoint(x: containerView.frame.size.width, y: containerView.frame.size.height + 1))
 
         self.gravityBehavior = UIGravityBehavior(items: [toVC.view])
         self.gravityBehavior.magnitude = 4.0
@@ -47,7 +46,7 @@ class FadeAnimator: NSObject, UIViewControllerAnimatedTransitioning, UIDynamicAn
         self.context = transitionContext
     }
 
-    func dynamicAnimatorDidPause(animator: UIDynamicAnimator) {
+    func dynamicAnimatorDidPause(_ animator: UIDynamicAnimator) {
         self.context.completeTransition(true)
     }
 }

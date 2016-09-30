@@ -17,17 +17,17 @@ class DynamicAlertVC : UIViewController, UIGestureRecognizerDelegate {
         self.presentationSetup()
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.presentationSetup()
     }
     
     func presentationSetup() {
         self.transitioningDelegate = self.dynamicAlertTransDelegate
-        self.modalPresentationStyle = .Custom
+        self.modalPresentationStyle = .custom
     }
     
-    @IBAction func closeClicked(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func closeClicked(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

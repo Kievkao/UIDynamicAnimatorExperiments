@@ -18,15 +18,15 @@ class DynamicAlertAnimatedTransitioning: NSObject, UIViewControllerAnimatedTrans
         super.init()
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 1.5
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        let fromVC: UIViewController? = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
-        let toVC: UIViewController? = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-        let containerView: UIView? = transitionContext.containerView()
+        let fromVC: UIViewController? = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
+        let toVC: UIViewController? = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+        let containerView: UIView? = transitionContext.containerView
         
         self.setupDynamicAnimator(fromVC, toVC: toVC, containerView: containerView)
         
@@ -38,32 +38,32 @@ class DynamicAlertAnimatedTransitioning: NSObject, UIViewControllerAnimatedTrans
         }
     }
     
-    func setupDynamicAnimator(fromVC: UIViewController?, toVC: UIViewController?, containerView: UIView?) {
+    func setupDynamicAnimator(_ fromVC: UIViewController?, toVC: UIViewController?, containerView: UIView?) {
         self.dynamicAnimator = UIDynamicAnimator(referenceView: containerView!)
     }
     
-    func animatePresentation(transitionContext: UIViewControllerContextTransitioning?, fromVC: UIViewController?, toVC: UIViewController?, containerView: UIView?) {
+    func animatePresentation(_ transitionContext: UIViewControllerContextTransitioning?, fromVC: UIViewController?, toVC: UIViewController?, containerView: UIView?) {
         
-        toVC?.view.frame = (transitionContext?.finalFrameForViewController(toVC!))!
+        toVC?.view.frame = (transitionContext?.finalFrame(for: toVC!))!
         
         // we have to add toVC to container. In this example we use PresentationController, where we do it. Otherwise we would have to do it here
     
-        let snapBehaviour = UISnapBehavior(item: (toVC?.view)!, snapToPoint: (containerView?.center)!)
+        let snapBehaviour = UISnapBehavior(item: (toVC?.view)!, snapTo: (containerView?.center)!)
         snapBehaviour.damping = 0.65
         self.dynamicAnimator.addBehavior(snapBehaviour)
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () -> Void in
             transitionContext?.completeTransition(true)
         }
     }
     
-    func animateDismissal(transitionContext: UIViewControllerContextTransitioning?, fromVC: UIViewController?, toVC: UIViewController?, containerView: UIView?) {
+    func animateDismissal(_ transitionContext: UIViewControllerContextTransitioning?, fromVC: UIViewController?, toVC: UIViewController?, containerView: UIView?) {
 
         let gravityBehavior = UIGravityBehavior(items: [(fromVC?.view)!])
-        gravityBehavior.gravityDirection = CGVectorMake(0, 10)
+        gravityBehavior.gravityDirection = CGVector(dx: 0, dy: 10)
         self.dynamicAnimator.addBehavior(gravityBehavior)
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () -> Void in
             transitionContext?.completeTransition(true)
         }
     }

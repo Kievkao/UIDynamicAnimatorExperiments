@@ -10,9 +10,9 @@ import UIKit
 
 class FadeViewContainerVC: UIViewController {
 
-    @IBAction func dropViewClicked(sender: UIButton) {
-        if let fadeVC = self.storyboard?.instantiateViewControllerWithIdentifier(FadeViewVC.identifier()) {
-            self.presentViewController(fadeVC, animated: true, completion: nil)
+    @IBAction func dropViewClicked(_ sender: UIButton) {
+        if let fadeVC = self.storyboard?.instantiateViewController(withIdentifier: FadeViewVC.identifier()) {
+            self.present(fadeVC, animated: true, completion: nil)
         }
     }
 }

@@ -17,21 +17,21 @@ class FadeViewVC: UIViewController {
         self.presentationSetup()
     }
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.presentationSetup()
     }
 
     func presentationSetup() {
         self.transitioningDelegate = self.transitionDelegate
-        self.modalPresentationStyle = .Custom
+        self.modalPresentationStyle = .custom
     }
 
     static func identifier() -> String {
         return "FadeViewVC"
     }
 
-    @IBAction func dismissClicked(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func dismissClicked(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

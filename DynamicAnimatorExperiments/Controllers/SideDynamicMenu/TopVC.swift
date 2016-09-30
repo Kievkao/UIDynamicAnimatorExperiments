@@ -10,7 +10,7 @@ import UIKit
 
 protocol DynamicTopVCDelegate: class {
     
-    func topVCTestBtnClicked(viewController: UIViewController)
+    func topVCTestBtnClicked(_ viewController: UIViewController)
 }
 
 class TopVC: UIViewController {
@@ -22,7 +22,7 @@ class TopVC: UIViewController {
 
     }
     
-    @IBAction func testBtnClicked(sender: AnyObject) {
+    @IBAction func testBtnClicked(_ sender: AnyObject) {
         self.delegate?.topVCTestBtnClicked(self)
     }
 }

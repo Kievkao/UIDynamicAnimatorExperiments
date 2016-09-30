@@ -12,14 +12,14 @@ class DynamicAlertPresentationC : UIPresentationController {
     
     override func presentationTransitionWillBegin() {
         // This should be done in Animated Transition or Presentation Controller!
-        self.containerView?.addSubview(self.presentedView()!)
+        self.containerView?.addSubview(self.presentedView!)
     }
     
-    override func frameOfPresentedViewInContainerView() -> CGRect {
+    override var frameOfPresentedViewInContainerView : CGRect {
         
         let width: CGFloat = 200.0
         let height: CGFloat = 100.0
-        let frame = CGRectMake(self.containerView!.center.x - width/2, CGRectGetMinY(self.containerView!.frame) - height, width, height)
+        let frame = CGRect(x: self.containerView!.center.x - width/2, y: self.containerView!.frame.minY - height, width: width, height: height)
         return frame
     }
 }
